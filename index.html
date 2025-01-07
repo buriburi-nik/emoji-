@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Emoji Search</title>
+      <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+      
+        body {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          text-align: center;
+          font-family: sans-serif;
+          font-size: 25px;
+          height: 100vh;
+          background: linear-gradient(45deg, #ffdfbb, #ffc4a3, #ffdfbb);
+          background-size: 400% 400%;
+          animation: gradientBackground 8s infinite;
+        }
+      
+        @keyframes gradientBackground {
+          0% {
+            background-position: 0% 50%;
+          }
+      
+          50% {
+            background-position: 100% 50%;
+          }
+      
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+      
+        h1 {
+          color: black;
+          margin-bottom: 1rem;
+        }
+      
+        .navbar {
+          display: flex;
+          justify-content: center;
+          gap: 15px;
+          margin-bottom: 20px;
+        }
+      
+        #filter-emogi button {
+          font-size: 15px;
+          font-weight: bold;
+          padding: 10px 15px;
+          border-radius: 10px;
+          background-color: #fdbb8f;
+          color: #000;
+          border: none;
+          cursor: pointer;
+          transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+      
+        #filter-emogi button:hover {
+          background-color: #fca56b;
+          transform: scale(1.1);
+        }
+      
+        #search {
+          padding: 10px 10px 10px 32px;
+          background-image: url("./magnifying-glass.png");
+          background-color: #ffffff;
+          background-repeat: no-repeat;
+          background-size: 20px;
+          background-position: 10px;
+          border-radius: 20px;
+          outline: none;
+          font-size: 15px;
+          border: none;
+          transition: box-shadow 0.3s ease;
+        }
+      
+        #search:focus {
+          box-shadow: 0 0 10px #ff8b61;
+        }
+      
+        #display-emoji {
+          margin: 0px 5rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-wrap: wrap;
+          text-align: center;
+          gap: 20px;
+        }
+      
+        .emoji {
+          font-size: 2rem;
+          display: inline-flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          width: 80px;
+          height: 80px;
+          background-color: #fff;
+          border-radius: 50%;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          cursor: pointer;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+      
+        .emoji:hover {
+          transform: scale(1.2);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+      
+        .emoji span {
+          font-size: 0.8rem;
+          color: #555;
+        }
+      
+        .no-results {
+          font-size: 1.5rem;
+          color: #555;
+          margin-top: 20px;
+        }
+      </style>
+      </head>
+      
+      <body>
+        <div class="main">
+          <h1>Emojee - Emoji 🔍 Application</h1>
+          <div class="navbar">
+            <div id="filter-emogi">
+              <button class="filter-btn" data-category="all">All</button>
+              <button class="filter-btn" data-category="face">Face</button>
+              <button class="filter-btn" data-category="heart">Heart</button>
+              <button class="filter-btn" data-category="book">Book</button>
+              <button class="filter-btn" data-category="hand">Hand</button>
+              <button class="filter-btn" data-category="sports">Sports</button>
+              <button class="filter-btn" data-category="flag">Flag</button>
+            </div>
+            <input id="search" type="text" placeholder="Search Emoji...">
+          </div>
+          <div id="display-emoji"></div>
+          <div class="no-results" style="display: none;">No emojis found! Try a different search term.</div>
+        </div>
+        <script src="./randomemoji.js"></script>
+        <script src="./data.js"></script>
+        <script src="./script.js"></script>
+      </body>
+      
+      </html>
